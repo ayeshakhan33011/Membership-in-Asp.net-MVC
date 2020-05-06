@@ -1,0 +1,3 @@
+﻿
+@using mem_mvc.ViewModel.Account
+@Html.DropDownList("", AccountViewModel.GetAllRoles((int)ViewBag.RoleId),"Select Role",new { @class="form-control"})

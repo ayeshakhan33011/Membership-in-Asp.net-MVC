@@ -1,0 +1,83 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Dashboard Index</h2>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="alert alert-info">
+            <h3> welcome <b>@WebSecurity.CurrentUserName</b></h3>
+            <a href='@Url.Action("logout","Account")'>Logout</a> <span> |</span>
+
+            @if (User.IsInRole("Administration") || User.IsInRole("Manager"))
+            {
+                @Html.ActionLink("Register new user", "Register", "Account") <span>|</span>
+            }
+
+            @Html.ActionLink("Change Password", "ChangePassword", "Account")
+        </div>
+    </div>
+
+    <div class="col-md-6">
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Users Management</h3>
+            </div>
+
+            <div class="panel-body text-center">
+                <div class="col-md-3">
+                    <a href='@Url.Action("UserList","Account")'>
+                        <i class="fas fa-users fa-3x"></i>
+                        <h4>Users List</h4>
+                    </a>
+                </div>
+
+                <div class="col-md-3">
+                    <a href='@Url.Action("UserList","Account")'>
+                        <i class="fas fa-users fa-3x"></i>
+                        <h4>Users List</h4>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    @if (User.IsInRole("Administration"))
+    {
+    <div class="col-md-6">
+
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h3 class="panel-title">demo</h3>
+            </div>
+
+            <div class="panel-body text-center">
+                <div class="col-md-3">
+                    <a href='@Url.Action("UserList", "Account")'>
+                        <i class="fas fa-users fa-3x"></i>
+                        <h4>Users List</h4>
+                    </a>
+                </div>
+
+                <div class="col-md-3">
+                    <a href='@Url.Action("UserList", "Account")'>
+                        <i class="fas fa-users fa-3x"></i>
+                        <h4>Users List</h4>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+    }
+</div>
+
+
